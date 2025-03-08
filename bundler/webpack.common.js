@@ -11,10 +11,12 @@ module.exports = {
   },
   devtool: "source-map",
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "../src/index.html"),
-      minify: true,
-    }),
+ new HtmlWebpackPlugin({
+  template: path.resolve(__dirname, "../src/index.html"),
+  filename: "index.html",  // Ensures it is placed in dist/
+  inject: "body",
+}),
+
     new MiniCSSExtractPlugin(),
   ],
   module: {
